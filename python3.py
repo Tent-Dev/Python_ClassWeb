@@ -1,5 +1,12 @@
 #!\xampp\htdocs\python_web\venv\Scripts\python
 import random
+
+import cgi
+form = cgi.FieldStorage()
+c = int(form.getvalue('col')) #รับค่าจาก HTML form อ้างอิง name attribute
+r = int(form.getvalue('rows'))
+n = int(form.getvalue('name'))
+
 print("Content-type:text/html\n")
 print("<html>")
 print("<head><title> My First page python </title></head>")
@@ -7,8 +14,8 @@ print("<body>")
 print("<table border='1'>")
 i = 1
 j=1
-i_end = 10
-j_end = 7
+i_end = r
+j_end = c
 while(i<=i_end):
     print("<tr>")
 
@@ -29,7 +36,7 @@ while(i<=i_end):
             else:
                 atag = ""
                 etag = ""
-            print("<td bgcolor='{}'>{}Chutipas{}</td>".format(ccode,atag,etag))
+            print("<td bgcolor='{}'>{}{}{}</td>".format(ccode,atag,n,etag))
         j+=1
     print("</tr>")
     i+=1
