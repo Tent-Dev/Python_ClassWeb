@@ -14,40 +14,40 @@ print("""<head><title> My First page python </title>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>""")
 print("<body>")
-print("<div class='contrainer'>")
+print("<div class='contrainer' align='center'>")
 print("<div class='row' align='center'>")
 form = cgi.FieldStorage()
-get_Fname = form.getvalue('Fname') #รับค่าจาก HTML form อ้างอิง name attribute
-get_Lname = form.getvalue('Lname')
 get_Username = form.getvalue('Username')
 get_Password = form.getvalue('Password')
 now = datetime.datetime.now()
 #get_PasswordEncode = hashlib.md5(get_Password.encode()).hexdigest()
 
 
-def insertDB(sql_command):
+def checkDB(sql_command):
     try:
         myDatabase = "database/practice.sqlite3"
         with (sqlite3.connect(myDatabase)) as conn:
             conn.row_factory = sqlite3.Row
-            conn.executescript(sql_command)
-            print("<div class='col-12' align='center'><div class='col-6 alert alert-success' role='alert'>Success</div></div>")
-            print("<div class='col-12' align='center'><b>Your Username is</b></div>")
-            print("<div class='col-12' align='center'><h1>{}</h1></div>".format(get_Username))
-            print("<div class='col-12' align='center'><b>Register Date: {}</b></div>".format(now))
-            print("<div class='col-12' align='center'><a href='login.html'><input type='button' class='btn btn-info' value='Login'></a></div>")
+            cursor = conn.execute(sql_command).fetchone()
+            if(cursor):
+                print("<div class='col-12' align='center'><div class='col-6 alert alert-success' role='alert'>Login Success {}</div></div>".format(cursor))
+                print("<div class='col-12' align='center'><b>Your Username is</b></div>")
+                print("<div class='col-12' align='center'><h1>{}</h1></div>".format(get_Username))
+                print("<div class='col-12' align='center'><b>Last access {}</b></div>".format(now))
+                print("<div class='col-12' align='center'>Redirect to basicmysql.py in 2 seconds</div>")
+                print("<script>setTimeout(function(){window.location.href = 'basicmysql.py';},2000)</script>")
+            else:
+                print("<div class='col-12' align='center'><div class='col-6 alert alert-danger' role='alert'>Login Fail</div></div>")
+                print("<div class='col-12' align='center'><b>Your Username or Password is wrong</b></div>")
     except:
         print("<div class='col-12'><b>Error</b></div>")
 
 if __name__ == '__main__':
 
-    sql_command = """BEGIN;
-                         INSERT INTO users (username, password, name, lastname)
-                         VALUES ('{}', '{}', '{}', '{}');
-                         COMMIT;""".format(get_Username,get_Password,get_Fname,get_Lname)
-
-    insertDB(sql_command)
+    sql_command = """SELECT username,password FROM users WHERE username = '{}' and password = '{}'""".format(get_Username,get_Password)
+    checkDB(sql_command)
     print("</div>")
     print("</div>")
     print("</body>")
     print("</html>")
+

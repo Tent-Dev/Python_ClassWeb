@@ -17,13 +17,18 @@ print("<body>")
 print("<div class='contrainer'>")
 print("<div class='row' align='center'>")
 form = cgi.FieldStorage()
-get_Fname = form.getvalue('Fname') #รับค่าจาก HTML form อ้างอิง name attribute
-get_Lname = form.getvalue('Lname')
-get_Username = form.getvalue('Username')
-get_Password = form.getvalue('Password')
+get_ProductID = form.getvalue('ProductID') #รับค่าจาก HTML form อ้างอิง name attribute
+get_ProductName = form.getvalue('ProductName')
+get_SupplierID = form.getvalue('SupplierID')
+get_CategoryID = form.getvalue('CategoryID')
+get_QuantityPerUnit = form.getvalue('QuantityPerUnit')
+get_UnitPrice = form.getvalue('UnitPrice')
+get_UnitsInStock = form.getvalue('UnitsInStock')
+get_UnitsOnOrder = form.getvalue('UnitsOnOrder')
+get_ReorderLevel = form.getvalue('ReorderLevel')
+get_Discontinued = form.getvalue('Discontinued')
 now = datetime.datetime.now()
 #get_PasswordEncode = hashlib.md5(get_Password.encode()).hexdigest()
-
 
 def insertDB(sql_command):
     try:
@@ -31,19 +36,15 @@ def insertDB(sql_command):
         with (sqlite3.connect(myDatabase)) as conn:
             conn.row_factory = sqlite3.Row
             conn.executescript(sql_command)
-            print("<div class='col-12' align='center'><div class='col-6 alert alert-success' role='alert'>Success</div></div>")
-            print("<div class='col-12' align='center'><b>Your Username is</b></div>")
-            print("<div class='col-12' align='center'><h1>{}</h1></div>".format(get_Username))
-            print("<div class='col-12' align='center'><b>Register Date: {}</b></div>".format(now))
-            print("<div class='col-12' align='center'><a href='login.html'><input type='button' class='btn btn-info' value='Login'></a></div>")
+
     except:
         print("<div class='col-12'><b>Error</b></div>")
 
 if __name__ == '__main__':
 
     sql_command = """BEGIN;
-                         INSERT INTO users (username, password, name, lastname)
-                         VALUES ('{}', '{}', '{}', '{}');
+                         INSERT INTO products (ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
+                         VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}');
                          COMMIT;""".format(get_Username,get_Password,get_Fname,get_Lname)
 
     insertDB(sql_command)
