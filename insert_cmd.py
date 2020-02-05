@@ -17,7 +17,7 @@ print("<body>")
 print("<div class='contrainer'>")
 print("<div class='row' align='center'>")
 form = cgi.FieldStorage()
-get_ProductID = form.getvalue('ProductID') #รับค่าจาก HTML form อ้างอิง name attribute
+#รับค่าจาก HTML form อ้างอิง name attribute
 get_ProductName = form.getvalue('ProductName')
 get_SupplierID = form.getvalue('SupplierID')
 get_CategoryID = form.getvalue('CategoryID')
@@ -27,7 +27,7 @@ get_UnitsInStock = form.getvalue('UnitsInStock')
 get_UnitsOnOrder = form.getvalue('UnitsOnOrder')
 get_ReorderLevel = form.getvalue('ReorderLevel')
 get_Discontinued = form.getvalue('Discontinued')
-now = datetime.datetime.now()
+#now = datetime.datetime.now()
 #get_PasswordEncode = hashlib.md5(get_Password.encode()).hexdigest()
 
 def insertDB(sql_command):
@@ -36,6 +36,8 @@ def insertDB(sql_command):
         with (sqlite3.connect(myDatabase)) as conn:
             conn.row_factory = sqlite3.Row
             conn.executescript(sql_command)
+            print("<div class='col-12'><b>Add Success</b></div>")
+            print("<script>setTimeout(function(){window.location.href = 'basicmysql.py';},1000)</script>")
 
     except:
         print("<div class='col-12'><b>Error</b></div>")
@@ -43,9 +45,9 @@ def insertDB(sql_command):
 if __name__ == '__main__':
 
     sql_command = """BEGIN;
-                         INSERT INTO products (ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
-                         VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}');
-                         COMMIT;""".format(get_Username,get_Password,get_Fname,get_Lname)
+                         INSERT INTO products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
+                         VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}');
+                         COMMIT;""".format(get_ProductName,get_SupplierID,get_CategoryID,get_QuantityPerUnit,get_UnitPrice,get_UnitsInStock,get_UnitsOnOrder,get_ReorderLevel,get_Discontinued)
 
     insertDB(sql_command)
     print("</div>")
