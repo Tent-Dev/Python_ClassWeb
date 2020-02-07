@@ -12,3 +12,8 @@
 2020-02-08 00:51:02,"(1054, ""Unknown column 'AAAA' in 'field list'"")"
 2020-02-08 00:51:10,"(1054, ""Unknown column 'TEST' in 'field list'"")"
 2020-02-08 00:52:28,"(1054, ""Unknown column 'AAAAA' in 'field list'"")"
+2020-02-08 01:11:20,"(1054, ""Unknown column 'TEST' in 'field list'"")"
+2020-02-08 01:14:15,"(1062, ""Duplicate entry 'TEST' for key 'PRIMARY'"")"
+2020-02-08 01:15:55,"(1062, ""Duplicate entry 'TEST' for key 'PRIMARY'"")"
+2020-02-08 01:20:48,"(1062, ""Duplicate entry 'ASDFG' for key 'PRIMARY'"")"
+2020-02-08 01:23:42,"(1062, ""Duplicate entry 'CHUTI' for key 'PRIMARY'"")"

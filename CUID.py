@@ -329,7 +329,7 @@ def insertPcountryuct():
 
     sql = """
         INSERT INTO customers (CustomerID, CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax) 
-        VALUES ({10},"{0}","{1}","{2}","{3}","{4}","{5}","{6}","{7}","{8}","{9}")
+        VALUES ("{10}","{0}","{1}","{2}","{3}","{4}","{5}","{6}","{7}","{8}","{9}")
     """.format(company_name,contact_name,contact_title,address,city,region,postal_code,country,phone,fax,customer_id)
     result = executeInsertSQL(sql)
     if(result[0] == 1):
