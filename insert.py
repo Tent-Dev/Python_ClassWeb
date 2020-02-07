@@ -1,4 +1,4 @@
-#!\xampp\htdocs\python_web\venv\Scripts\python
+#!\xampp\htdocs\Python_ClassWeb\venv2\Scripts\python.exe
 print("Content-type:text/html\n")
 import pymysql
 def connectDB():
@@ -37,7 +37,7 @@ print("<li class='nav-item active'>")
 print("<a class='nav-link' href='insert.py'>Add Product <span class='sr-only'>(current)</span></a>")
 print("</li>")
 print("<li class='nav-item'>")
-print("<a class='nav-link' href='#'>Pricing</a>")
+print("<a class='nav-link' href='CUID.py'>Customer Management</a>")
 print("</li>")
 print("<li class='nav-item'>")
 print("<a class='nav-link disabled' href='#' tabindex='-1' aria-disabled='true'>Disabled</a>")
@@ -138,6 +138,7 @@ print("Re Order Level : ")
 print("</div>")
 print("<div class='col-2'>")
 print("<input type='text' class='form-control' name='ReorderLevel'>")
+
 print("</div>")
 print("</div>")
 

@@ -18,6 +18,7 @@ print("<div class='contrainer'>")
 print("<div class='row' align='center'>")
 form = cgi.FieldStorage()
 #รับค่าจาก HTML form อ้างอิง name attribute
+
 get_ProductName = form.getvalue('ProductName')
 get_SupplierID = form.getvalue('SupplierID')
 get_CategoryID = form.getvalue('CategoryID')
@@ -25,7 +26,7 @@ get_QuantityPerUnit = form.getvalue('QuantityPerUnit')
 get_UnitPrice = form.getvalue('UnitPrice')
 get_UnitsInStock = form.getvalue('UnitsInStock')
 get_UnitsOnOrder = form.getvalue('UnitsOnOrder')
-get_ReorderLevel = form.getvalue('ReorderLevel')
+get_ReorderLevel = form.getvalue('UnitsOnOrder')
 get_Discontinued = form.getvalue('Discontinued')
 #now = datetime.datetime.now()
 #get_PasswordEncode = hashlib.md5(get_Password.encode()).hexdigest()
@@ -39,6 +40,7 @@ def insertDB(sql_command):
             print("<div class='col-12'><b>Add Success</b></div>")
             print("<script>setTimeout(function(){window.location.href = 'basicmysql.py';},1000)</script>")
 
+
     except:
         print("<div class='col-12'><b>Error</b></div>")
 
@@ -48,6 +50,7 @@ if __name__ == '__main__':
                          INSERT INTO products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
                          VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}');
                          COMMIT;""".format(get_ProductName,get_SupplierID,get_CategoryID,get_QuantityPerUnit,get_UnitPrice,get_UnitsInStock,get_UnitsOnOrder,get_ReorderLevel,get_Discontinued)
+
 
     insertDB(sql_command)
     print("</div>")

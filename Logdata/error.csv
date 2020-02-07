@@ -1,0 +1,14 @@
+2020-02-07 10:26:40,[Errno 2] No such file or directory: 'Country/csutomers.csv'
+2020-02-07 10:26:51,string index out of range
+2020-02-07 10:54:50,Unknown format code 'f' for object of type 'str'
+2020-02-07 10:54:51,Unknown format code 'f' for object of type 'str'
+2020-02-07 23:08:15,"(1062, ""Duplicate entry '' for key 'PRIMARY'"")"
+2020-02-07 23:09:22,"(1062, ""Duplicate entry '' for key 'PRIMARY'"")"
+2020-02-07 23:13:58,"(1062, ""Duplicate entry '' for key 'PRIMARY'"")"
+2020-02-07 23:48:07,"(1064, 'You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near \'Anders,ContactTitle=Sales Representative,Address=""Obere Str. 57"",City=Berlin,Reg\' at line 2')"
+2020-02-08 00:01:15,Replacement index 0 out of range for positional args tuple
+2020-02-08 00:50:05,"(1054, ""Unknown column 'TTT' in 'field list'"")"
+2020-02-08 00:50:24,"(1054, ""Unknown column 'AAAA' in 'field list'"")"
+2020-02-08 00:51:02,"(1054, ""Unknown column 'AAAA' in 'field list'"")"
+2020-02-08 00:51:10,"(1054, ""Unknown column 'TEST' in 'field list'"")"
+2020-02-08 00:52:28,"(1054, ""Unknown column 'AAAAA' in 'field list'"")"

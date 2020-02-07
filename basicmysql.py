@@ -1,5 +1,4 @@
-#!\xampp\htdocs\python_web\venv\Scripts\python
-
+#!\xampp\htdocs\Python_ClassWeb\venv2\Scripts\python.exe
 import pymysql
 def connectDB():
     con = pymysql.connect(host='localhost',
@@ -34,7 +33,7 @@ print("<li class='nav-item'>")
 print("<a class='nav-link' href='insert.py'>Add Product</a>")
 print("</li>")
 print("<li class='nav-item'>")
-print("<a class='nav-link' href='#'>Pricing</a>")
+print("<a class='nav-link' href='CUID.py'>Customer Management</a>")
 print("</li>")
 print("<li class='nav-item'>")
 print("<a class='nav-link disabled' href='#' tabindex='-1' aria-disabled='true'>Disabled</a>")
