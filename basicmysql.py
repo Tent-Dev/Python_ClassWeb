@@ -1,4 +1,4 @@
-#!\xampp\htdocs\Python_ClassWeb\venv2\Scripts\python.exe
+#!\xampp\htdocs\Python_ClassWeb\venv\Scripts\python.exe
 import pymysql
 def connectDB():
     con = pymysql.connect(host='localhost',
@@ -9,7 +9,30 @@ def connectDB():
                           cursorclass= pymysql.cursors.DictCursor,
                           autocommit=True)
     return con
-
+def nav():
+    print("<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>")
+    print("<a class='navbar-brand' href='#'>Python Web Class</a>")
+    print(
+        "<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>")
+    print("<span class='navbar-toggler-icon'></span>")
+    print("</button>")
+    print("<div class='collapse navbar-collapse' id='navbarNav'>")
+    print("<ul class='navbar-nav'>")
+    print("<li class='nav-item active'>")
+    print("<a class='nav-link' href='basicmysql.py'>Home <span class='sr-only'>(current)</span></a>")
+    print("</li>")
+    print("<li class='nav-item'>")
+    print("<a class='nav-link' href='insert.py'>Add Product</a>")
+    print("</li>")
+    print("<li class='nav-item'>")
+    print("<a class='nav-link' href='CUID.py'>Customer Management</a>")
+    print("</li>")
+    print("<li class='nav-item'>")
+    print("<a class='nav-link' href='request1.py'>Service</a>")
+    print("</li>")
+    print("</ul>")
+    print("</div>")
+    print("</nav><br>")
 print("Content-type:text/html\n")
 print("<html>")
 print("""<head><title> My First page python </title>
@@ -19,28 +42,7 @@ print("""<head><title> My First page python </title>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>""")
 print("<body>")
-print("<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>")
-print("<a class='navbar-brand' href='#'>Python Web Class</a>")
-print("<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>")
-print("<span class='navbar-toggler-icon'></span>")
-print("</button>")
-print("<div class='collapse navbar-collapse' id='navbarNav'>")
-print("<ul class='navbar-nav'>")
-print("<li class='nav-item active'>")
-print("<a class='nav-link' href='basicmysql.py'>Home <span class='sr-only'>(current)</span></a>")
-print("</li>")
-print("<li class='nav-item'>")
-print("<a class='nav-link' href='insert.py'>Add Product</a>")
-print("</li>")
-print("<li class='nav-item'>")
-print("<a class='nav-link' href='CUID.py'>Customer Management</a>")
-print("</li>")
-print("<li class='nav-item'>")
-print("<a class='nav-link disabled' href='#' tabindex='-1' aria-disabled='true'>Disabled</a>")
-print("</li>")
-print("</ul>")
-print("</div>")
-print("</nav><br>")
+nav()
 print("<div class='contrainer' align='center'>")
 
 #cursorclass= pymysql.cursors.DictCursor ทำให้อ้างอิงด้วยชื่อ field ได้

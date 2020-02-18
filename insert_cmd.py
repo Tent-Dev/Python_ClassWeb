@@ -1,4 +1,4 @@
-#!\xampp\htdocs\python_web\venv\Scripts\python
+#!\xampp\htdocs\Python_ClassWeb\venv\Scripts\python
 
 import cgi
 import hashlib

@@ -1,4 +1,4 @@
-#!\xampp\htdocs\Python_ClassWeb\venv2\Scripts\python.exe
+#!\xampp\htdocs\Python_ClassWeb\venv\Scripts\python.exe
 import pymysql
 import cgi
 import csv
@@ -50,7 +50,7 @@ def renderBody():
     print("<a class='nav-link' href='CUID.py'>Customer Management</a>")
     print("</li>")
     print("<li class='nav-item'>")
-    print("<a class='nav-link disabled' href='#' tabindex='-1' aria-disabled='true'>Disabled</a>")
+    print("<a class='nav-link' href='request1.py'>Service</a>")
     print("</li>")
     print("</ul>")
     print("</div>")

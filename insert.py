@@ -1,4 +1,4 @@
-#!\xampp\htdocs\Python_ClassWeb\venv2\Scripts\python.exe
+#!\xampp\htdocs\Python_ClassWeb\venv\Scripts\python.exe
 print("Content-type:text/html\n")
 import pymysql
 def connectDB():
@@ -10,6 +10,31 @@ def connectDB():
                           cursorclass= pymysql.cursors.DictCursor,
                           autocommit=True)
     return con
+
+def nav():
+    print("<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>")
+    print("<a class='navbar-brand' href='#'>Python Web Class</a>")
+    print(
+        "<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>")
+    print("<span class='navbar-toggler-icon'></span>")
+    print("</button>")
+    print("<div class='collapse navbar-collapse' id='navbarNav'>")
+    print("<ul class='navbar-nav'>")
+    print("<li class='nav-item'>")
+    print("<a class='nav-link' href='basicmysql.py'>Home <span class='sr-only'>(current)</span></a>")
+    print("</li>")
+    print("<li class='nav-item active'>")
+    print("<a class='nav-link' href='insert.py'>Add Product</a>")
+    print("</li>")
+    print("<li class='nav-item'>")
+    print("<a class='nav-link' href='CUID.py'>Customer Management</a>")
+    print("</li>")
+    print("<li class='nav-item'>")
+    print("<a class='nav-link' href='request1.py'>Service</a>")
+    print("</li>")
+    print("</ul>")
+    print("</div>")
+    print("</nav><br>")
 print("<html>")
 print("""<head><title> My First page python </title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -23,28 +48,7 @@ print("""<head><title> My First page python </title>
     </style>
     </head>""")
 print("<body>")
-print("<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>")
-print("<a class='navbar-brand' href='#'>Python Web Class</a>")
-print("<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>")
-print("<span class='navbar-toggler-icon'></span>")
-print("</button>")
-print("<div class='collapse navbar-collapse' id='navbarNav'>")
-print("<ul class='navbar-nav'>")
-print("<li class='nav-item'>")
-print("<a class='nav-link' href='basicmysql.py'>Home</a>")
-print("</li>")
-print("<li class='nav-item active'>")
-print("<a class='nav-link' href='insert.py'>Add Product <span class='sr-only'>(current)</span></a>")
-print("</li>")
-print("<li class='nav-item'>")
-print("<a class='nav-link' href='CUID.py'>Customer Management</a>")
-print("</li>")
-print("<li class='nav-item'>")
-print("<a class='nav-link disabled' href='#' tabindex='-1' aria-disabled='true'>Disabled</a>")
-print("</li>")
-print("</ul>")
-print("</div>")
-print("</nav><br>")
+nav()
 print("<div class='contrainer' align='center'>")
 print("<form class='form-group'>")
 print("<div class='row'>")
